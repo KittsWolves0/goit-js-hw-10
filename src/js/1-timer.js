@@ -3,6 +3,12 @@ import flatpickr from "flatpickr";
 // Додатковий імпорт стилів
 import "flatpickr/dist/flatpickr.min.css";
 
+// Описаний у документації
+import iziToast from "izitoast";
+// Додатковий імпорт стилів
+import "izitoast/dist/css/iziToast.min.css";
+
+
 const startBtn = document.querySelector("button[data-start]");
 const days = document.querySelector("span[data-days]");
 const hours = document.querySelector("span[data-hours]");
@@ -20,13 +26,20 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
       userSelectedDate = selectedDates[0].getTime();
-      if (userSelectedDate <= Date.now()) {
-          startBtn.disabled = true;
-          setTimeout(() => { alert("Please choose a date in the future") }, 1);
-      } else {
-          startBtn.disabled = false;
+    if (userSelectedDate <= Date.now()) {
+        startBtn.disabled = true;
+        setTimeout(() => { iziToast.show({
+            message: "Please choose a date in the future",
+            position: 'topCenter',
+            closeOnClick: true,
+            timeout: 0,
+            messageColor: 'white',
+            backgroundColor: 'red'
+        }); }, 1);
+    } else {
+        startBtn.disabled = false;
           
-      }
+    }
   },
 };
 
