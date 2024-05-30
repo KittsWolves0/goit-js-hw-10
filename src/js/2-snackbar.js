@@ -5,7 +5,7 @@ import "izitoast/dist/css/iziToast.min.css";
 
 
 const form = document.querySelector(".form");
-const deley = form.querySelector('[name="delay"]');
+const deleyMs = form.querySelector('[name="delay"]');
 const subBtn = form.querySelector('button');
 
 
@@ -18,9 +18,9 @@ function notificatCreator(event) {
 
   const promises = () => {
     if (selectedOption.value === "fulfilled") {
-      return Promise.resolve(deley.value);
+      return Promise.resolve(deleyMs.value);
     } else {
-      return Promise.reject(deley.value);
+      return Promise.reject(deleyMs.value);
     }
   };
 
