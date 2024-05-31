@@ -9,7 +9,7 @@ const deleyMs = form.querySelector('[name="delay"]');
 const subBtn = form.querySelector('button');
 
 
-subBtn.addEventListener("click", notificatCreator);
+subBtn.addEventListener("submit", notificatCreator);
 
 function notificatCreator(event) {
   event.preventDefault();
@@ -42,5 +42,5 @@ function notificatCreator(event) {
         }); }, deley);
     })
 
-  form.reset();
+  event.target.reset();
 }
