@@ -6,10 +6,9 @@ import "izitoast/dist/css/iziToast.min.css";
 
 const form = document.querySelector(".form");
 const deleyMs = form.querySelector('[name="delay"]');
-const subBtn = form.querySelector('button');
 
 
-subBtn.addEventListener("submit", notificatCreator);
+form.addEventListener("submit", notificatCreator);
 
 function notificatCreator(event) {
   event.preventDefault();
